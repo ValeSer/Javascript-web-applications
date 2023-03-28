@@ -11,6 +11,13 @@
           this.mainContainerEl = document.querySelector("#main-container");
           console.log(this.mainContainerEl);
         }
+        addParagraph(text) {
+          const newParagraph = document.createElement("p");
+          const newContent = document.createTextNode(text);
+          newParagraph.appendChild(newContent);
+          const currentParagraph = document.getSelection("first-paragraph");
+          document.body.insertBefore(newParagraph, currentParagraph.previousElementSibling);
+        }
       };
       module.exports = View2;
     }
@@ -19,4 +26,5 @@
   // index.js
   var View = require_view();
   var view = new View();
+  view.addParagraph("This paragraph has been dynamically added by JavaScript!");
 })();
