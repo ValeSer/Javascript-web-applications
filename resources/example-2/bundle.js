@@ -18,6 +18,10 @@
           const currentParagraph = document.getSelection("first-paragraph");
           document.body.insertBefore(newParagraph, currentParagraph.previousElementSibling);
         }
+        clearParagraphs() {
+          const allParagraphs = document.querySelectorAll("p");
+          allParagraphs.forEach((element) => element.remove());
+        }
       };
       module.exports = View2;
     }

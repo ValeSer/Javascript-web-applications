@@ -21,4 +21,11 @@ describe('Page view', () => {
     view.addParagraph('paragraph n 3');
     expect(document.querySelectorAll('p').length).toBe(3);
   });
+
+  it('removes all the p from the documents', () => {
+    document.body.innerHTML = fs.readFileSync('./index.html');
+    const view = new View();
+    view.clearParagraphs();
+    expect(document.querySelectorAll('p').length).toBe(0);
+  });
 });
