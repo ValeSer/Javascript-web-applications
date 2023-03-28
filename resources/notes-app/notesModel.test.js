@@ -10,4 +10,10 @@ describe('NotesModel', () => {
     model.addNote('Note1');
     expect(model.getNotes()).toEqual(['Note1']);
   });
+  it('resets the notes', () => {
+    const model = new NotesModel();
+    model.addNote('Note1');
+    model.reset();
+    expect(model.getNotes()).toEqual([]);
+  })
 })
