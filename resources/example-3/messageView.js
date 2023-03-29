@@ -8,7 +8,10 @@ class MessageView {
   }
 
   displayMessage() {
-    console.log('Thanks for clicking me!');
+    const message = document.createElement('div');
+    message.textContent = 'This message displayed by JavaScript';
+    message.Id = 'message';
+    this.buttonEl.append(message);
   }
 }
 

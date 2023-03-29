@@ -14,7 +14,10 @@
           });
         }
         displayMessage() {
-          console.log("Thanks for clicking me!");
+          const message = document.createElement("div");
+          message.textContent = "This message displayed by JavaScript";
+          message.Id = "message";
+          this.buttonEl.append(message);
         }
       };
       module.exports = MessageView2;
@@ -24,4 +27,5 @@
   // index.js
   var MessageView = require_messageView();
   var view = new MessageView();
+  view.displayMessage();
 })();
