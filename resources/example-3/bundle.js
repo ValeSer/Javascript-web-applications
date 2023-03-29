@@ -9,15 +9,17 @@
       var MessageView2 = class {
         constructor() {
           this.buttonEl = document.querySelector("#show-message-button");
+          this.mainContainer = document.querySelector("#main-container");
           this.buttonEl.addEventListener("click", () => {
             this.displayMessage();
           });
         }
         displayMessage() {
+          console.log("Thanks for clicking me!");
           const message = document.createElement("div");
           message.textContent = "This message displayed by JavaScript";
           message.Id = "message";
-          this.buttonEl.append(message);
+          this.mainContainer.append(message);
         }
       };
       module.exports = MessageView2;
@@ -27,5 +29,4 @@
   // index.js
   var MessageView = require_messageView();
   var view = new MessageView();
-  view.displayMessage();
 })();
