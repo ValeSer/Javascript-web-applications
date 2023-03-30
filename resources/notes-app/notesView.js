@@ -10,6 +10,7 @@ class NotesView {
     this.addButtonEl.addEventListener('click', () => {
       const newNote = this.inputEl.value;
       this.addNewNote(newNote);
+      this.inputEl.value = '';
       this.displayNotes();
     });
 
