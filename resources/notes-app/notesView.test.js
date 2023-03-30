@@ -36,6 +36,16 @@ describe('NotesView', () => {
     setTimeout(() => {
       (expect(document.querySelector('div.note').length).toEqual(1));
     }, 5000);
-    
+  });
+  
+  it('display 2 notes', () => {
+    document.body.innerHTML = fs.readFileSync('./index.html');
+    const notesModel = new NotesModel
+    const notesView = new NotesView(notesModel);
+
+    notesModel.addNote('note1');
+    notesView.displayNotes();
+    notesView.displayNotes();
+    expect(document.querySelectorAll('div.note').length).toEqual(1);
   });
 })
