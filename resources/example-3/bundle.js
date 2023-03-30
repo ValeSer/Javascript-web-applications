@@ -8,18 +8,28 @@
     "messageView.js"(exports, module) {
       var MessageView2 = class {
         constructor() {
-          this.buttonEl = document.querySelector("#show-message-button");
-          this.mainContainer = document.querySelector("#main-container");
-          this.buttonEl.addEventListener("click", () => {
+          this.addButtonEl = document.querySelector("#show-message-button");
+          this.hideButtonEl = document.querySelector("#hide-message-button");
+          this.inputEl = document.querySelector("#message-input");
+          this.mainContainerEl = document.querySelector("#main-container");
+          this.addButtonEl.addEventListener("click", () => {
             this.displayMessage();
+          });
+          this.hideButtonEl.addEventListener("click", () => {
+            this.hideMessage();
           });
         }
         displayMessage() {
+          const newElement = document.createElement("div");
+          newElement.className = "message";
+          newElement.innerText = this.inputEl.value;
           console.log("Thanks for clicking me!");
-          const message = document.createElement("div");
-          message.textContent = "This message displayed by JavaScript";
-          message.Id = "message";
-          this.mainContainer.append(message);
+          this.mainContainerEl.append(newElement);
+        }
+        hideMessage() {
+          const element = document.querySelector(".message:last-child");
+          if (element)
+            element.remove();
         }
       };
       module.exports = MessageView2;

@@ -1,24 +1,25 @@
 class MessageView {
   constructor() {
-    this.buttonEl = document.querySelector('#show-message-button');
-    this.buttonEl2 = document.querySelector('#hide-message-button');
+    this.addButtonEl = document.querySelector('#show-message-button');
+    this.hideButtonEl = document.querySelector('#hide-message-button');
+    this.inputEl = document.querySelector('#message-input');
+    this.mainContainerEl = document.querySelector('#main-container');
 
-    this.buttonEl.addEventListener('click', () => {
+
+    this.addButtonEl.addEventListener('click', () => {
        this.displayMessage();
     });
 
-    this.buttonEl2.addEventListener('click', () => {
+    this.hideButtonEl.addEventListener('click', () => {
       this.hideMessage();
     });
-
-    this.mainContainerEl = document.querySelector('#main-container');
   }
 
   displayMessage() {
 
     const newElement = document.createElement('div');
     newElement.className = 'message';
-    newElement.innerText = 'This message displayed by JavaScript';
+    newElement.innerText = this.inputEl.value;
     console.log('Thanks for clicking me!');
 
     this.mainContainerEl.append(newElement);
