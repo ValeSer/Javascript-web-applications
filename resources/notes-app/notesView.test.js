@@ -44,8 +44,9 @@ describe('NotesView', () => {
     const notesView = new NotesView(notesModel);
 
     notesModel.addNote('note1');
+    notesModel.addNote('note2');
     notesView.displayNotes();
     notesView.displayNotes();
-    expect(document.querySelectorAll('div.note').length).toEqual(1);
+    expect(document.querySelectorAll('div.note').length).toEqual(2);
   });
 })
