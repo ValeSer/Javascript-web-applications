@@ -28,10 +28,18 @@
   // notesView.js
   var require_notesView = __commonJS({
     "notesView.js"(exports, module) {
+      var NotesModel2 = require_notesModel();
       var NotesView2 = class {
         constructor(model) {
           this.model = model;
           this.mainContainerEl = document.querySelector("#main-container");
+          this.addButtonEl = document.querySelector("#add-note-button");
+          this.inputEl = document.querySelector("#note-input");
+          this.addButtonEl.addEventListener("click", () => {
+            const newNote = this.inputEl.value;
+            this.addNewNote(newNote);
+            this.displayNotes();
+          });
         }
         displayNotes() {
           const notes = this.model.getNotes();
@@ -41,6 +49,9 @@
             noteEl.className = "note";
             this.mainContainerEl.append(noteEl);
           });
+        }
+        addNewNote(inputEl) {
+          this.model.addNote(inputEl);
         }
       };
       module.exports = NotesView2;
@@ -53,7 +64,6 @@
   var notesModel = new NotesModel();
   console.log("The notes app is running");
   console.log(notesModel.getNotes());
-  notesModel.addNote("This is an example note");
   var notesView = new NotesView(notesModel);
   notesView.displayNotes();
 })();
