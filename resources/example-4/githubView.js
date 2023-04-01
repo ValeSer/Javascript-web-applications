@@ -20,6 +20,7 @@ class GithubView {
   display(repoData) {
     document.querySelector('#repo-name').innerHTML = repoData.full_name;
     document.querySelector('#repo-description').innerHTML = repoData.description;
+    document.querySelector('#repo-avatar').src = repoData.organization.avatar_url;
   }
 }
 
